@@ -11,7 +11,7 @@ export const siteImages = {
   favicon: "/images/favicon.png",
   heroBanner: "/images/hero-banner.webp",
   about: "/images/about.png",
-  trustLogos: "/images/trust-logos.png",
+  trustLogos: "/images/logos-full.png",
   cyberRoamerFeature: "/images/cyber-roamer-feature.webp",
   categories: {
     atv: "/images/category-atv.png",

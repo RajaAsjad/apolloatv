@@ -76,7 +76,11 @@ details:not([open]) > summary::after {
 }
 
 .animate-marquee {
-  animation: marquee 28s linear infinite;
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {
