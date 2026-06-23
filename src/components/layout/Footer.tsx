@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { navLinks, siteConfig } from "@/data/site";
+import { siteImages } from "@/lib/images";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -10,15 +12,13 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-apollo-red font-bold text-white">
-                A
-              </div>
-              <div>
-                <p className="text-lg font-bold text-white">{siteConfig.name}</p>
-                <p className="text-xs text-gray-400">Wholesale Powersports</p>
-              </div>
-            </div>
+            <Image
+              src={siteImages.logo}
+              alt={siteConfig.name}
+              width={140}
+              height={48}
+              className="h-10 w-auto object-contain"
+            />
             <p className="mt-4 text-sm leading-relaxed text-gray-400">
               {siteConfig.description}
             </p>

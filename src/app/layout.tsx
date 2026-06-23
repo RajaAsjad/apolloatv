@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { siteConfig } from "@/data/site";
+import { siteImages } from "@/lib/images";
 import "./globals.css";
 
 const inter = Inter({
@@ -18,6 +19,10 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   metadataBase: new URL(siteConfig.url),
   robots: { index: true, follow: true },
+  icons: {
+    icon: siteImages.favicon,
+    apple: siteImages.favicon,
+  },
 };
 
 export default function RootLayout({

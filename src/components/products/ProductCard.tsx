@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Product } from "@/data/products";
 import { categoryLabels } from "@/data/products";
+import { productImage } from "@/lib/images";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
@@ -8,10 +10,15 @@ export default function ProductCard({ product }: { product: Product }) {
       href={`/products/${product.slug}`}
       className="group overflow-hidden rounded-2xl border border-white/10 bg-apollo-darker transition-all hover:border-apollo-red/40 hover:shadow-lg"
     >
-      <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-gray-800 via-apollo-darker to-black">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <p className="text-4xl font-black text-white/10">{product.engineSize}</p>
-        </div>
+      <div className="relative aspect-[4/3] overflow-hidden bg-apollo-darker">
+        <Image
+          src={productImage(product.slug)}
+          alt={product.name}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-apollo-darker/80 via-transparent to-transparent" />
         <div className="absolute left-4 top-4">
           <span className="rounded-full bg-apollo-red/90 px-3 py-1 text-xs font-semibold text-white">
             {categoryLabels[product.category]}

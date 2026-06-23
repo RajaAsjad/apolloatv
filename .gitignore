@@ -36,6 +36,11 @@ yarn-error.log*
 # vercel
 .vercel
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# scrape artifacts
+homepage-http.html
+homepage-scrape.html
+products-scrape.html
+product-gt-s.html
+kart-search.html
+
+.vercel

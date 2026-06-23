@@ -1,21 +1,22 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Menu } from "lucide-react";
-import { navLinks, siteConfig } from "@/data/site";
+import { navLinks } from "@/data/site";
+import { siteImages } from "@/lib/images";
 
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-apollo-dark/95 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="group flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-apollo-red font-bold text-white">
-            A
-          </div>
-          <div className="hidden sm:block">
-            <p className="text-lg font-bold tracking-tight text-white group-hover:text-apollo-red transition-colors">
-              {siteConfig.name}
-            </p>
-            <p className="text-xs text-gray-400">Wholesale Powersports</p>
-          </div>
+          <Image
+            src={siteImages.logo}
+            alt="Apollo ATVs"
+            width={140}
+            height={48}
+            className="h-10 w-auto object-contain"
+            priority
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Main navigation">

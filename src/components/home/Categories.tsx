@@ -1,18 +1,19 @@
 import Link from "next/link";
-import { ArrowRight, Bike, Car, Zap } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { categoryLabels, type ProductCategory } from "@/data/products";
+import { siteImages } from "@/lib/images";
 
 const categories: {
   key: ProductCategory;
-  icon: typeof Bike;
   description: string;
 }[] = [
-  { key: "atv", icon: Bike, description: "Sport, utility & youth models" },
-  { key: "utv", icon: Car, description: "Side-by-sides for work & play" },
-  { key: "dirt-bike", icon: Bike, description: "Apollo dirt bike lineup" },
-  { key: "go-kart", icon: Car, description: "Recreational go-karts" },
-  { key: "scooter", icon: Bike, description: "Urban & commuter scooters" },
-  { key: "electric", icon: Zap, description: "Next-gen electric rides" },
+  { key: "atv", description: "Sport, utility & youth models" },
+  { key: "utv", description: "Side-by-sides for work & play" },
+  { key: "dirt-bike", description: "Apollo dirt bike lineup" },
+  { key: "go-kart", description: "Recreational go-karts" },
+  { key: "scooter", description: "Urban & commuter scooters" },
+  { key: "electric", description: "Next-gen electric rides" },
 ];
 
 export default function Categories() {
@@ -33,22 +34,31 @@ export default function Categories() {
         </div>
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map(({ key, icon: Icon, description }) => (
+          {categories.map(({ key, description }) => (
             <Link
               key={key}
               href={`/products?category=${key}`}
-              className="group rounded-2xl border border-white/10 bg-apollo-dark p-6 transition-all hover:border-apollo-red/40 hover:bg-apollo-red/5"
+              className="group overflow-hidden rounded-2xl border border-white/10 bg-apollo-dark transition-all hover:border-apollo-red/40"
             >
-              <div className="flex items-start justify-between">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-apollo-red/10 text-apollo-red transition-colors group-hover:bg-apollo-red group-hover:text-white">
-                  <Icon className="h-6 w-6" />
-                </div>
-                <ArrowRight className="h-5 w-5 text-gray-600 transition-all group-hover:translate-x-1 group-hover:text-apollo-red" />
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image
+                  src={siteImages.categories[key]}
+                  alt={categoryLabels[key]}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-apollo-dark via-apollo-dark/20 to-transparent" />
               </div>
-              <h3 className="mt-4 text-lg font-bold text-white">
-                {categoryLabels[key]}
-              </h3>
-              <p className="mt-2 text-sm text-gray-400">{description}</p>
+              <div className="flex items-start justify-between p-5">
+                <div>
+                  <h3 className="text-lg font-bold text-white group-hover:text-apollo-red transition-colors">
+                    {categoryLabels[key]}
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-400">{description}</p>
+                </div>
+                <ArrowRight className="mt-1 h-5 w-5 shrink-0 text-gray-600 transition-all group-hover:translate-x-1 group-hover:text-apollo-red" />
+              </div>
             </Link>
           ))}
         </div>

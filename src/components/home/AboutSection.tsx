@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { aboutContent, trustBadges } from "@/data/site";
+import { siteImages } from "@/lib/images";
 import { Award, Shield, Users, Wrench } from "lucide-react";
 
 const icons = [Award, Shield, Users, Wrench];
@@ -8,6 +10,16 @@ export default function AboutSection() {
     <section className="bg-apollo-dark py-20" id="about">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/10">
+            <Image
+              src={siteImages.about}
+              alt="Apollo ATVs dealership and powersports"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
+
           <div>
             <p className="text-sm font-semibold uppercase tracking-wider text-apollo-red">
               About Us
@@ -23,22 +35,22 @@ export default function AboutSection() {
               ))}
             </div>
           </div>
+        </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            {trustBadges.map((badge, i) => {
-              const Icon = icons[i % icons.length];
-              return (
-                <div
-                  key={badge.label}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-apollo-red/30 hover:bg-apollo-red/5"
-                >
-                  <Icon className="h-8 w-8 text-apollo-red" />
-                  <p className="mt-4 text-2xl font-bold text-white">{badge.label}</p>
-                  <p className="mt-1 text-sm text-gray-400">{badge.sublabel}</p>
-                </div>
-              );
-            })}
-          </div>
+        <div className="mt-16 grid grid-cols-2 gap-4 lg:grid-cols-4">
+          {trustBadges.map((badge, i) => {
+            const Icon = icons[i % icons.length];
+            return (
+              <div
+                key={badge.label}
+                className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-apollo-red/30 hover:bg-apollo-red/5"
+              >
+                <Icon className="h-8 w-8 text-apollo-red" />
+                <p className="mt-4 text-2xl font-bold text-white">{badge.label}</p>
+                <p className="mt-1 text-sm text-gray-400">{badge.sublabel}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -47,21 +59,16 @@ export default function AboutSection() {
 
 export function TrustBanner() {
   return (
-    <section className="border-y border-white/10 bg-apollo-darker py-8">
+    <section className="border-y border-white/10 bg-apollo-darker py-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
-          {[
-            "Quality Craftsmanship",
-            "Dealer-Focused Support",
-            "Integrity & Transparency",
-            "Nationwide Distribution",
-            "Parts Availability",
-          ].map((item) => (
-            <div key={item} className="flex items-center gap-2">
-              <Shield className="h-4 w-4 text-apollo-red" />
-              <span className="text-sm font-medium text-gray-300">{item}</span>
-            </div>
-          ))}
+        <div className="relative mx-auto h-12 max-w-4xl">
+          <Image
+            src={siteImages.trustLogos}
+            alt="Partner and certification logos"
+            fill
+            className="object-contain opacity-80"
+            sizes="(max-width: 1024px) 100vw, 896px"
+          />
         </div>
       </div>
     </section>

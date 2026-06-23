@@ -1,18 +1,27 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import type { Product } from "@/data/products";
+import { productImage } from "@/lib/images";
 
 export default function ProductGallery({ product }: { product: Product }) {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+  const src = productImage(product.slug);
 
   return (
     <div className="space-y-4">
-      <div className="relative aspect-square overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-gray-800 via-apollo-darker to-black">
-        <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-          <p className="text-7xl font-black text-white/10">{product.engineSize}</p>
-          <p className="mt-4 text-lg font-bold text-white">{product.name}</p>
-          <p className="mt-1 text-sm text-apollo-red">{selectedColor}</p>
+      <div className="relative aspect-square overflow-hidden rounded-2xl border border-white/10 bg-apollo-darker">
+        <Image
+          src={src}
+          alt={`${product.name} - ${selectedColor}`}
+          fill
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          priority
+        />
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+          <p className="text-sm font-medium text-white">{selectedColor}</p>
         </div>
       </div>
 
