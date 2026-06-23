@@ -1,26 +1,67 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --apollo-red: #e31e24;
+  --apollo-dark: #0f0f0f;
+  --apollo-darker: #080808;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-apollo-red: var(--apollo-red);
+  --color-apollo-dark: var(--apollo-dark);
+  --color-apollo-darker: var(--apollo-darker);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--apollo-dark);
+  color: #f3f4f6;
+}
+
+::selection {
+  background: rgba(227, 30, 36, 0.3);
+  color: white;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] summary .open\:hidden {
+  display: none;
+}
+
+details:not([open]) summary .hidden.open\:hidden {
+  display: none;
+}
+
+details[open] summary::before {
+  content: none;
+}
+
+/* Mobile menu toggle icon swap */
+details > summary svg:first-child {
+  display: block;
+}
+
+details[open] > summary svg:first-child {
+  display: none;
+}
+
+details[open] > summary::after {
+  content: "✕";
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+details:not([open]) > summary::after {
+  content: none;
 }
