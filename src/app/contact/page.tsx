@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="bg-apollo-dark py-20">
+      <section className="bg-apollo-dark py-12 sm:py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-wider text-apollo-red">
             Get in Touch
           </p>
-          <h1 className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
             Contact Us
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-gray-400">
@@ -27,9 +27,9 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-apollo-darker py-20">
+      <section className="bg-apollo-darker py-12 sm:py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-3">
+          <div className="grid gap-8 lg:grid-cols-3 lg:gap-12">
             <div className="space-y-8">
               <div className="rounded-2xl border border-white/10 bg-apollo-dark p-6">
                 <Phone className="h-6 w-6 text-apollo-red" />
@@ -59,7 +59,7 @@ export default function ContactPage() {
             </div>
 
             <div className="lg:col-span-2">
-              <div className="rounded-2xl border border-white/10 bg-apollo-dark p-8">
+              <div className="rounded-2xl border border-white/10 bg-apollo-dark p-4 sm:p-8">
                 <h2 className="text-xl font-bold text-white">Send a Message</h2>
                 <div className="mt-8">
                   <ContactForm />

@@ -18,13 +18,13 @@ const categories: {
 
 export default function Categories() {
   return (
-    <section className="bg-apollo-darker py-20">
+    <section className="bg-apollo-darker py-12 sm:py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-wider text-apollo-red">
             Product Categories
           </p>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
             Your Digital Showroom
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-gray-400">

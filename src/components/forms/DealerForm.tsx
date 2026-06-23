@@ -25,7 +25,7 @@ export default function DealerForm() {
   }
 
   const inputClass =
-    "w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-gray-500 transition-colors focus:border-apollo-red focus:outline-none focus:ring-1 focus:ring-apollo-red";
+    "w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-base text-white placeholder-gray-500 transition-colors focus:border-apollo-red focus:outline-none focus:ring-1 focus:ring-apollo-red";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">

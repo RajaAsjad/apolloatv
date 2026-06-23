@@ -71,7 +71,7 @@ export default function BecomeADealerPage() {
               touch within 2–3 business days.
             </p>
           </div>
-          <div className="mt-12 rounded-2xl border border-white/10 bg-apollo-darker p-8">
+          <div className="mt-8 rounded-2xl border border-white/10 bg-apollo-darker p-4 sm:mt-12 sm:p-6 md:p-8">
             <DealerForm />
           </div>
         </div>

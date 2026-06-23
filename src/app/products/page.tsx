@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ProductCard from "@/components/products/ProductCard";
+import ProductFilters from "@/components/products/ProductFilters";
 import DealerCTA from "@/components/ui/DealerCTA";
-import {
-  products,
-  categoryLabels,
-  engineSizes,
-  type ProductCategory,
-} from "@/data/products";
+import { products, categoryLabels, type ProductCategory } from "@/data/products";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -37,86 +33,31 @@ export default async function ProductsPage({
 
   return (
     <>
-      <section className="bg-apollo-dark py-16">
+      <section className="bg-apollo-dark py-10 sm:py-14 md:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-wider text-apollo-red">
             Product Catalog
           </p>
-          <h1 className="mt-2 text-4xl font-bold tracking-tight text-white">
+          <h1 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Digital Showroom
           </h1>
-          <p className="mt-4 max-w-2xl text-gray-400">
+          <p className="mt-3 max-w-2xl text-sm text-gray-400 sm:mt-4 sm:text-base">
             Explore our complete lineup of powersports vehicles. Filter by category
             or engine size to find the right models for your dealership.
           </p>
         </div>
       </section>
 
-      <section className="bg-apollo-darker py-12">
+      <section className="bg-apollo-darker py-8 sm:py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-8 lg:flex-row">
-            <aside className="lg:w-64 shrink-0">
-              <div className="sticky top-24 space-y-8">
-                <div>
-                  <h2 className="text-sm font-semibold uppercase tracking-wider text-white">
-                    Categories
-                  </h2>
-                  <ul className="mt-4 space-y-2">
-                    <li>
-                      <Link
-                        href="/products"
-                        className={`block rounded-lg px-3 py-2 text-sm transition-colors ${
-                          !categoryFilter
-                            ? "bg-apollo-red/10 text-apollo-red font-medium"
-                            : "text-gray-400 hover:text-white hover:bg-white/5"
-                        }`}
-                      >
-                        All Products
-                      </Link>
-                    </li>
-                    {(Object.keys(categoryLabels) as ProductCategory[]).map((cat) => (
-                      <li key={cat}>
-                        <Link
-                          href={`/products?category=${cat}`}
-                          className={`block rounded-lg px-3 py-2 text-sm transition-colors ${
-                            categoryFilter === cat
-                              ? "bg-apollo-red/10 text-apollo-red font-medium"
-                              : "text-gray-400 hover:text-white hover:bg-white/5"
-                          }`}
-                        >
-                          {categoryLabels[cat]}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          <div className="flex flex-col gap-6 lg:flex-row lg:gap-8">
+            <ProductFilters
+              categoryFilter={categoryFilter}
+              engineFilter={engineFilter}
+            />
 
-                <div>
-                  <h2 className="text-sm font-semibold uppercase tracking-wider text-white">
-                    Engine Size
-                  </h2>
-                  <ul className="mt-4 space-y-2">
-                    {engineSizes.map((size) => (
-                      <li key={size}>
-                        <Link
-                          href={`/products?engine=${size}${categoryFilter ? `&category=${categoryFilter}` : ""}`}
-                          className={`block rounded-lg px-3 py-2 text-sm transition-colors ${
-                            engineFilter === size
-                              ? "bg-apollo-red/10 text-apollo-red font-medium"
-                              : "text-gray-400 hover:text-white hover:bg-white/5"
-                          }`}
-                        >
-                          {size}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </aside>
-
-            <div className="flex-1">
-              <div className="mb-6 flex items-center justify-between">
+            <div className="min-w-0 flex-1">
+              <div className="mb-4 sm:mb-6">
                 <p className="text-sm text-gray-400">
                   Showing {filtered.length} product{filtered.length !== 1 ? "s" : ""}
                   {categoryFilter && ` in ${categoryLabels[categoryFilter]}`}
@@ -125,13 +66,13 @@ export default async function ProductsPage({
               </div>
 
               {filtered.length > 0 ? (
-                <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 xl:grid-cols-3">
                   {filtered.map((product) => (
                     <ProductCard key={product.slug} product={product} />
                   ))}
                 </div>
               ) : (
-                <div className="rounded-2xl border border-white/10 bg-apollo-dark p-12 text-center">
+                <div className="rounded-2xl border border-white/10 bg-apollo-dark p-8 text-center sm:p-12">
                   <p className="text-gray-400">No products match your filters.</p>
                   <Link
                     href="/products"

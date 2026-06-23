@@ -27,13 +27,13 @@ export default function ProductGallery({ product }: { product: Product }) {
 
       <div>
         <p className="mb-3 text-sm font-medium text-gray-400">Available Colors</p>
-        <div className="flex flex-wrap gap-2">
+        <div className="-mx-1 flex gap-2 overflow-x-auto pb-1 scrollbar-hide sm:mx-0 sm:flex-wrap sm:overflow-visible">
           {product.colors.map((color) => (
             <button
               key={color}
               type="button"
               onClick={() => setSelectedColor(color)}
-              className={`rounded-full border px-4 py-2 text-sm font-medium transition-all ${
+              className={`shrink-0 rounded-full border px-3 py-2 text-xs font-medium transition-all sm:px-4 sm:text-sm ${
                 selectedColor === color
                   ? "border-apollo-red bg-apollo-red/10 text-apollo-red"
                   : "border-white/10 text-gray-400 hover:border-white/30 hover:text-white"

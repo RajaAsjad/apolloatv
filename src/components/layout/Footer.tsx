@@ -9,8 +9,8 @@ export default function Footer() {
 
   return (
     <footer className="mt-auto border-t border-white/10 bg-apollo-darker">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="grid gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-4">
           <div className="lg:col-span-1">
             <Image
               src={siteImages.logo}
@@ -93,7 +93,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-8 text-center sm:mt-12 sm:flex-row sm:gap-4 sm:text-left">
           <p className="text-sm text-gray-500">
             © {year} {siteConfig.name}. All rights reserved.
           </p>

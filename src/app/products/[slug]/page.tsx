@@ -88,9 +88,9 @@ export default async function ProductDetailPage({
         </div>
       </section>
 
-      <section className="bg-apollo-dark pb-16">
+      <section className="bg-apollo-dark pb-10 sm:pb-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
             <ProductGallery product={product} />
 
             <div>
@@ -103,7 +103,7 @@ export default async function ProductDetailPage({
                 </span>
               </div>
 
-              <h1 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              <h1 className="mt-4 text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
                 {product.name}
               </h1>
               <p className="mt-2 text-lg text-apollo-red">{product.tagline}</p>
@@ -120,17 +120,17 @@ export default async function ProductDetailPage({
                 ))}
               </ul>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row">
                 <Link
                   href="/become-a-dealer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-apollo-red px-8 py-3.5 text-sm font-bold text-white transition-all hover:bg-red-600"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-apollo-red px-6 py-3.5 text-sm font-bold text-white transition-all hover:bg-red-600 sm:w-auto sm:px-8"
                 >
                   Become a Dealer
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:border-apollo-red hover:text-apollo-red"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:border-apollo-red hover:text-apollo-red sm:w-auto sm:px-8"
                 >
                   Request Info
                 </Link>

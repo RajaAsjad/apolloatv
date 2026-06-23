@@ -8,14 +8,14 @@ export default function FeaturedProducts() {
   const featured = getFeaturedProducts();
 
   return (
-    <section className="bg-apollo-dark py-20">
+    <section className="bg-apollo-dark py-12 sm:py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <div>
             <p className="text-sm font-semibold uppercase tracking-wider text-apollo-red">
               Featured Models
             </p>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl">
               Explore Apollo Lineup
             </h2>
           </div>

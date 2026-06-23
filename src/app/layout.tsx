@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -25,6 +25,12 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} h-full scroll-smooth`}>
-      <body className="min-h-full flex flex-col bg-apollo-dark font-sans text-gray-100 antialiased">
+      <body className="flex min-h-full flex-col overflow-x-hidden bg-apollo-dark font-sans text-gray-100 antialiased">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
