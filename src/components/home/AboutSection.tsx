@@ -56,21 +56,3 @@ export default function AboutSection() {
     </section>
   );
 }
-
-export function TrustBanner() {
-  return (
-    <section className="border-y border-white/10 bg-apollo-darker py-10">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="relative mx-auto h-12 max-w-4xl">
-          <Image
-            src={siteImages.trustLogos}
-            alt="Partner and certification logos"
-            fill
-            className="object-contain opacity-80"
-            sizes="(max-width: 1024px) 100vw, 896px"
-          />
-        </div>
-      </div>
-    </section>
-  );
-}

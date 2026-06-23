@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import AboutSection, { TrustBanner } from "@/components/home/AboutSection";
+import AboutSection from "@/components/home/AboutSection";
+import PartnersBanner from "@/components/home/PartnersBanner";
 import DealerCTA from "@/components/ui/DealerCTA";
 import { siteConfig } from "@/data/site";
 
@@ -28,7 +29,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <TrustBanner />
+      <PartnersBanner />
       <AboutSection />
       <DealerCTA />
     </>

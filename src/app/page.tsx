@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import Hero, { VideoSection } from "@/components/home/Hero";
-import AboutSection, { TrustBanner } from "@/components/home/AboutSection";
+import Hero from "@/components/home/Hero";
+import VideoSection from "@/components/home/VideoSection";
+import AboutSection from "@/components/home/AboutSection";
+import PartnersBanner from "@/components/home/PartnersBanner";
 import FeaturedProducts from "@/components/home/FeaturedProducts";
 import Categories from "@/components/home/Categories";
 import DealerCTA from "@/components/ui/DealerCTA";
@@ -28,7 +30,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <Hero />
-      <TrustBanner />
+      <PartnersBanner />
       <FeaturedProducts />
       <Categories />
       <AboutSection />
